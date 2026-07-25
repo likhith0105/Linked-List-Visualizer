@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linked List Visualizer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>🔗 Linked List Visualizer</h1>
+    <p>Interactive visualization of linked list operations</p>
+  </header>
+
+  <!-- Main Layout -->
+  <main>
+    <!-- Left: Visualization -->
+    <section class="viz-section">
+      <!-- Mode Selector -->
+      <div class="mode-selector">
+        <label for="list-mode">List Type:</label>
+        <select id="list-mode">
+          <option value="singly">Singly Linked List</option>
+          <option value="doubly">Doubly Linked List</option>
+          <option value="circular">Circular Linked List</option>
+          <option value="doubly-circular">Doubly Circular Linked List</option>
+        </select>
+      </div>
+
+      <!-- Canvas -->
+      <div class="canvas-wrapper">
+        <canvas id="linked-list-canvas" width="900" height="400"></canvas>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+        <div class="control-group">
+          <h3>Insert</h3>
+          <input type="number" id="insert-value" placeholder="Value" min="0" max="999">
+          <select id="insert-position">
+            <option value="beginning">At Beginning</option>
+            <option value="end">At End</option>
+            <option value="position">At Position</option>
+          </select>
+          <input type="number" id="insert-index" placeholder="Index" min="0" hidden>
+          <button id="btn-insert" class="btn btn-primary">Insert</button>
+        </div>
+
+        <div class="control-group">
+          <h3>Delete</h3>
+          <input type="number" id="delete-value" placeholder="Value" min="0" max="999">
+          <button id="btn-delete" class="btn btn-danger">Delete</button>
+        </div>
+
+        <div class="control-group">
+          <h3>Search</h3>
+          <input type="number" id="search-value" placeholder="Value" min="0" max="999">
+          <button id="btn-search" class="btn btn-info">Search</button>
+        </div>
+
+        <div class="control-group">
+          <h3>Action</h3>
+          <button id="btn-reverse" class="btn btn-warning">Reverse</button>
+          <button id="btn-clear" class="btn btn-outline">Clear All</button>
+          <button id="btn-generate" class="btn btn-outline">Generate Random</button>
+        </div>
+      </div>
+
+      <!-- Status / Log -->
+      <div class="status-bar" id="status-bar">
+        <span id="status-text">Ready — Choose an operation to begin.</span>
+        <span id="list-size">Size: 0</span>
+      </div>
+    </section>
+
+    <!-- Right: Info Panel -->
+    <aside class="info-panel">
+      <h2>📖 Applications</h2>
+
+      <div class="info-card">
+        <h3>🧠 Memory Management</h3>
+        <p>Linked lists are used in dynamic memory allocation (e.g., free lists). Each free block points to the next, enabling efficient allocation and deallocation of memory chunks.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>⚙️ Operating Systems</h3>
+        <p>Process scheduling queues (ready queue, wait queue) are implemented as linked lists. File systems use linked allocation to manage disk blocks efficiently.</p>
+      </div>
+
+      <h2>🎯 Operations</h2>
+      <ul class="ops-list">
+        <li><strong>Insertion</strong> — Add nodes at beginning, end, or specific position</li>
+        <li><strong>Deletion</strong> — Remove a node by its value</li>
+        <li><strong>Searching</strong> — Find a node by value with step animation</li>
+        <li><strong>Reversal</strong> — Reverse the entire linked list in-place</li>
+      </ul>
+    </aside>
+  </main>
+
+  <!-- Legend -->
+  <div class="legend">
+    <span><span class="legend-color default"></span> Default Node</span>
+    <span><span class="legend-color visiting"></span> Visiting / Searching</span>
+    <span><span class="legend-color found"></span> Found</span>
+    <span><span class="legend-color inserting"></span> Inserting</span>
+    <span><span class="legend-color deleting"></span> Deleting</span>
+    <span><span class="legend-color reversed"></span> Reversed</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
